@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FRDESIGN.CA — Communications graphiques</title>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff url(images/FR08-Fond.png) no-repeat right bottom;
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      width: 370px;
+    }
+
+    .card img {
+      display: block;
+    }
+
+    .card-contact {
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .card-contact-link {
+      width: 153px;
+      height: 39px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <img src="images/FR08-Accueil_C1V1_03.png" width="370" height="61" alt="FRDesign">
+    <img src="images/FR08-Accueil_C1V1_05.png" width="370" height="102" alt="">
+    <div class="card-contact">
+      <img src="images/FR08-Accueil_C1V1_07.png" width="217" height="39" alt="Contact">
+      <a class="card-contact-link" id="email-link" style="display:block;">
+        <img src="images/FR08-Accueil_C1V1_08.png" width="153" height="39" alt="Courriel">
+      </a>
+      <script>
+        (function(){
+          var u=["aW5mb0BmcmRlc2lnbi5jYQ=="];
+          document.getElementById("email-link").href="mailto:"+atob(u[0]);
+        })();
+      </script>
+      <noscript><a href="#" class="card-contact-link"><img src="images/FR08-Accueil_C1V1_08.png" width="153" height="39" alt="info@frdesign.ca"></a></noscript>
+    </div>
+    <img src="images/FR08-Accueil_C1V1_09.png" width="370" height="31" alt="">
+  </div>
+
+</body>
+</html>
