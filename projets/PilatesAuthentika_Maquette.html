@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pilates AuthentiKa — Maquette</title>
+<style>
+  /* ── RESET & BASE ─────────────────────────────── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --blue:      #2E5FA3;
+    --blue-dark: #1E3F6F;
+    --blue-lt:   #EBF0FA;
+    --blue-mid:  #D0DCF5;
+    --sand:      #F7F4EF;
+    --sand-dark: #EDE8DF;
+    --text:      #1A1A1A;
+    --muted:     #555555;
+    --white:     #FFFFFF;
+    --warn:      #C0392B;
+    --ok:        #1A7A3A;
+    --badge-new: #E8F5E9;
+    --badge-new-border: #1A7A3A;
+    --radius:    6px;
+    --shadow:    0 2px 16px rgba(46,95,163,0.10);
+    --max:       1180px;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Segoe UI', system-ui, -apple-system, Arial, sans-serif; font-size: 16px; color: var(--text); background: var(--white); line-height: 1.65; }
+  img { display: block; max-width: 100%; }
+  a { color: var(--blue); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* ── MAQUETTE BANNER ──────────────────────────── */
+  .maquette-banner {
+    background: var(--blue-dark);
+    color: #fff;
+    text-align: center;
+    font-size: 13px;
+    padding: 8px 16px;
+    letter-spacing: .03em;
+    position: sticky;
+    top: 0;
+    z-index: 200;
+  }
+  .maquette-banner strong { color: #FFD166; }
+
+  /* ── NAV ──────────────────────────────────────── */
+  nav {
+    background: var(--white);
+    border-bottom: 1px solid var(--blue-mid);
+    position: sticky;
+    top: 37px;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,.06);
+  }
+  .nav-inner {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+  .nav-logo {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--blue);
+    letter-spacing: -.01em;
+  }
+  .nav-logo span { color: var(--text); font-weight: 400; }
+  .nav-links { display: flex; gap: 8px; list-style: none; }
+  .nav-links a {
+    padding: 8px 14px;
+    border-radius: var(--radius);
+    font-size: 14.5px;
+    font-weight: 500;
+    color: var(--muted);
+    transition: background .15s, color .15s;
+    cursor: pointer;
+  }
+  .nav-links a:hover, .nav-links a.active {
+    background: var(--blue-lt);
+    color: var(--blue);
+    text-decoration: none;
+  }
+  .nav-cta {
+    background: var(--blue);
+    color: var(--white) !important;
+    padding: 9px 18px !important;
+    border-radius: var(--radius) !important;
+    font-weight: 600 !important;
+  }
+  .nav-cta:hover { background: var(--blue-dark) !important; color: #fff !important; }
+
+  /* ── PAGE SYSTEM ──────────────────────────────── */
+  .page { display: none; }
+  .page.active { display: block; }
+
+  /* ── CONTAINER ────────────────────────────────── */
+  .container { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+
+  /* ── BADGE UX ─────────────────────────────────── */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 20px;
+    vertical-align: middle;
+    margin-left: 8px;
+  }
+  .badge-new { background: var(--badge-new); color: var(--ok); border: 1px solid var(--badge-new-border); }
+  .badge-fix { background: #FFF3E0; color: #B35800; border: 1px solid #F0A040; }
+  .badge-seo { background: var(--blue-lt); color: var(--blue); border: 1px solid var(--blue-mid); }
+
+  /* ── HERO ─────────────────────────────────────── */
+  .hero {
+    background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
+    color: var(--white);
+    padding: 80px 24px 88px;
+    text-align: center;
+  }
+  .hero-eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.65);
+    margin-bottom: 18px;
+  }
+  .hero h1 {
+    font-size: clamp(28px, 4vw, 46px);
+    font-weight: 800;
+    line-height: 1.15;
+    max-width: 760px;
+    margin: 0 auto 20px;
+    letter-spacing: -.02em;
+  }
+  .hero-sub {
+    font-size: 17px;
+    color: rgba(255,255,255,.82);
+    max-width: 560px;
+    margin: 0 auto 40px;
+  }
+  .hero-ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 13px 26px;
+    border-radius: var(--radius);
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .15s;
+    border: none;
+    text-decoration: none;
+  }
+  .btn-primary { background: var(--white); color: var(--blue); }
+  .btn-primary:hover { background: var(--blue-lt); text-decoration: none; }
+  .btn-outline { background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,.5); }
+  .btn-outline:hover { background: rgba(255,255,255,.12); text-decoration: none; }
+  .btn-blue { background: var(--blue); color: var(--white); }
+  .btn-blue:hover { background: var(--blue-dark); text-decoration: none; }
+  .btn-ghost { background: transparent; color: var(--blue); border: 2px solid var(--blue-mid); }
+  .btn-ghost:hover { background: var(--blue-lt); text-decoration: none; }
+
+  .ux-note {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255,255,255,.15);
+    color: rgba(255,255,255,.9);
+    font-size: 12px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin-top: 28px;
+    border: 1px solid rgba(255,255,255,.25);
+  }
+
+  /* ── SECTIONS ─────────────────────────────────── */
+  section { padding: 72px 0; }
+  section.alt { background: var(--sand); }
+  section.blue-lt { background: var(--blue-lt); }
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 10px;
+  }
+  h2 { font-size: clamp(22px, 3vw, 34px); font-weight: 700; line-height: 1.2; letter-spacing: -.02em; margin-bottom: 14px; }
+  h3 { font-size: 19px; font-weight: 700; margin-bottom: 10px; }
+  .lead { font-size: 17px; color: var(--muted); max-width: 640px; }
+  .section-header { margin-bottom: 48px; }
+  .section-header.centered { text-align: center; }
+  .section-header.centered .lead { margin: 0 auto; }
+
+  /* ── VALEURS ──────────────────────────────────── */
+  .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  .value-card {
+    background: var(--white);
+    border: 1px solid var(--blue-mid);
+    border-top: 4px solid var(--blue);
+    border-radius: var(--radius);
+    padding: 32px 28px;
+  }
+  .value-icon { font-size: 28px; margin-bottom: 14px; }
+
+  /* ── PARCOURS ─────────────────────────────────── */
+  .parcours-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 12px; }
+  .parcours-card {
+    background: var(--white);
+    border: 2px solid var(--blue-mid);
+    border-radius: var(--radius);
+    padding: 36px 32px;
+    transition: border-color .15s, box-shadow .15s;
+    cursor: pointer;
+  }
+  .parcours-card:hover { border-color: var(--blue); box-shadow: var(--shadow); }
+  .parcours-card.featured { border-color: var(--blue); background: var(--blue-lt); }
+  .parcours-tag { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--blue); margin-bottom: 10px; }
+  .parcours-card h3 { font-size: 21px; margin-bottom: 8px; }
+  .parcours-card p { color: var(--muted); font-size: 15px; margin-bottom: 24px; }
+  .prix-apercu {
+    background: var(--white);
+    border: 1px solid var(--blue-mid);
+    border-radius: var(--radius);
+    padding: 14px 18px;
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+  .prix-apercu strong { color: var(--blue); font-size: 18px; }
+
+  /* ── FORMATION CARDS ──────────────────────────── */
+  .formation-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .formation-card {
+    background: var(--white);
+    border: 1px solid var(--blue-mid);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  .formation-img { height: 200px; background: var(--blue-mid); display: flex; align-items: center; justify-content: center; font-size: 40px; }
+  .formation-body { padding: 28px 24px; }
+  .formation-body ul { margin: 12px 0 20px 18px; color: var(--muted); font-size: 14.5px; }
+  .formation-body ul li { margin-bottom: 6px; }
+
+  /* ── ÉQUIPE ───────────────────────────────────── */
+  .equipe-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  .equipe-card {
+    background: var(--white);
+    border: 1px solid var(--blue-mid);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  .equipe-photo { height: 260px; background: var(--blue-lt); display: flex; align-items: center; justify-content: center; font-size: 56px; }
+  .equipe-body { padding: 24px; }
+  .equipe-role { font-size: 13px; color: var(--muted); margin-bottom: 12px; }
+  .equipe-body p { font-size: 14.5px; color: var(--muted); line-height: 1.6; }
+
+  /* ── TARIFS ───────────────────────────────────── */
+  .tarifs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 36px; }
+  .tarif-card {
+    border: 2px solid var(--blue-mid);
+    border-radius: var(--radius);
+    padding: 32px 24px;
+    text-align: center;
+    background: var(--white);
+    transition: box-shadow .15s;
+  }
+  .tarif-card:hover { box-shadow: var(--shadow); }
+  .tarif-card.featured { border-color: var(--blue); background: var(--blue-lt); }
+  .tarif-label { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--blue); margin-bottom: 10px; }
+  .tarif-price { font-size: 36px; font-weight: 800; color: var(--text); margin: 8px 0 4px; }
+  .tarif-unit { font-size: 13px; color: var(--muted); margin-bottom: 16px; }
+  .tarif-card ul { text-align: left; margin: 16px 0 24px 18px; font-size: 14px; color: var(--muted); }
+  .tarif-card ul li { margin-bottom: 6px; }
+
+  /* ── TUNNEL ───────────────────────────────────── */
+  .tunnel-box {
+    background: var(--white);
+    border: 2px solid var(--blue);
+    border-radius: var(--radius);
+    padding: 40px 36px;
+    max-width: 680px;
+    margin: 0 auto;
+    box-shadow: var(--shadow);
+  }
+  .tunnel-step { display: none; }
+  .tunnel-step.active { display: block; }
+  .tunnel-q { font-size: 20px; font-weight: 700; margin-bottom: 24px; color: var(--text); }
+  .tunnel-options { display: grid; gap: 12px; }
+  .tunnel-option {
+    border: 2px solid var(--blue-mid);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+    cursor: pointer;
+    transition: all .15s;
+    background: var(--white);
+    text-align: left;
+  }
+  .tunnel-option:hover { border-color: var(--blue); background: var(--blue-lt); }
+  .tunnel-option strong { display: block; font-size: 15px; margin-bottom: 3px; }
+  .tunnel-option span { font-size: 13.5px; color: var(--muted); }
+  .tunnel-back { background: none; border: none; color: var(--muted); font-size: 13px; cursor: pointer; margin-top: 16px; text-decoration: underline; }
+  .tunnel-reco {
+    background: var(--blue-lt);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin-bottom: 24px;
+    border-left: 4px solid var(--blue);
+  }
+
+  /* ── QUOTE ────────────────────────────────────── */
+  .quote-section {
+    background: var(--blue);
+    color: var(--white);
+    text-align: center;
+    padding: 56px 24px;
+  }
+  .quote-text { font-size: clamp(18px, 2.5vw, 26px); font-style: italic; max-width: 680px; margin: 0 auto 16px; opacity: .92; }
+  .quote-author { font-size: 13px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; opacity: .7; }
+
+  /* ── CONTACT ──────────────────────────────────── */
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+  .contact-info p { color: var(--muted); margin-bottom: 10px; font-size: 15px; }
+  .contact-info strong { color: var(--text); }
+  form { display: flex; flex-direction: column; gap: 14px; }
+  input, textarea, select {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1.5px solid var(--blue-mid);
+    border-radius: var(--radius);
+    font-size: 15px;
+    font-family: inherit;
+    color: var(--text);
+    background: var(--white);
+    transition: border-color .15s;
+  }
+  input:focus, textarea:focus { outline: none; border-color: var(--blue); }
+  textarea { min-height: 120px; resize: vertical; }
+  .form-consent { font-size: 12.5px; color: var(--muted); }
+  .form-consent a { color: var(--blue); }
+
+  /* ── WORKSHOPS PAGE ───────────────────────────── */
+  .workshop-hero {
+    background: linear-gradient(135deg, #1E3F6F 0%, #2E5FA3 100%);
+    color: var(--white);
+    padding: 64px 24px;
+    text-align: center;
+  }
+  .workshop-hero h1 { font-size: clamp(26px, 3.5vw, 40px); font-weight: 800; margin-bottom: 14px; }
+  .workshop-hero .lead { color: rgba(255,255,255,.8); margin: 0 auto; max-width: 580px; }
+  .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 36px 0; }
+  .pricing-card {
+    border: 2px solid var(--blue-mid);
+    border-radius: var(--radius);
+    padding: 28px 20px;
+    text-align: center;
+    background: var(--white);
+  }
+  .pricing-card.featured { border-color: var(--blue); background: var(--blue-lt); }
+  .pricing-card .price { font-size: 32px; font-weight: 800; color: var(--blue); margin: 8px 0; }
+  .early-bird { background: #FFF8E1; border: 1px solid #F0C040; border-radius: 20px; display: inline-block; padding: 4px 12px; font-size: 12px; font-weight: 700; color: #7A5500; margin-bottom: 8px; }
+  .mejo-bio {
+    background: var(--sand);
+    border-radius: var(--radius);
+    padding: 36px;
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 28px;
+    align-items: start;
+  }
+  .mejo-photo { width: 140px; height: 140px; border-radius: 50%; background: var(--blue-mid); display: flex; align-items: center; justify-content: center; font-size: 48px; }
+
+  /* ── FOOTER ───────────────────────────────────── */
+  footer {
+    background: var(--blue-dark);
+    color: rgba(255,255,255,.7);
+    padding: 48px 24px 32px;
+  }
+  .footer-inner {
+    max-width: var(--max);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid rgba(255,255,255,.15);
+    margin-bottom: 28px;
+  }
+  .footer-logo { font-size: 18px; font-weight: 700; color: var(--white); margin-bottom: 12px; }
+  footer h4 { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: rgba(255,255,255,.5); margin-bottom: 14px; }
+  footer ul { list-style: none; }
+  footer ul li { margin-bottom: 8px; font-size: 14px; }
+  footer ul li a { color: rgba(255,255,255,.7); }
+  footer ul li a:hover { color: var(--white); text-decoration: none; }
+  .footer-bottom { text-align: center; font-size: 12.5px; color: rgba(255,255,255,.4); max-width: var(--max); margin: 0 auto; }
+
+  /* ── CHIPS ────────────────────────────────────── */
+  .chip { display: inline-block; background: var(--blue-lt); color: var(--blue); font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 20px; border: 1px solid var(--blue-mid); }
+
+  /* ── AMÉLIORATION TOOLTIP ─────────────────────── */
+  .improve-bar {
+    background: var(--badge-new);
+    border: 1px solid var(--badge-new-border);
+    border-radius: var(--radius);
+    padding: 10px 16px;
+    font-size: 13px;
+    color: var(--ok);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* ── RESPONSIVE (basique) ─────────────────────── */
+  @media (max-width: 768px) {
+    .values-grid, .formation-grid, .equipe-grid, .tarifs-grid, .pricing-grid { grid-template-columns: 1fr; }
+    .parcours-grid, .contact-grid, .footer-inner { grid-template-columns: 1fr; }
+    .mejo-bio { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Bannière maquette -->
+<div class="maquette-banner">
+  🎨 <strong>MAQUETTE</strong> — Pilates AuthentiKa · Prototype de navigation · Juin 2026 &nbsp;|&nbsp; <span style="opacity:.7">Les badges <span style="background:rgba(255,255,255,.15);border-radius:3px;padding:1px 6px;font-size:11px;">✦ AMÉLIORATION</span> indiquent les corrections UX appliquées</span>
+</div>
+
+<!-- Navigation -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">Pilates <span>Authenti</span>Ka</div>
+    <ul class="nav-links">
+      <li><a onclick="showPage('accueil')" class="active" id="nav-accueil">Accueil</a></li>
+      <li><a onclick="showPage('cours')" id="nav-cours">Cours & réservation</a></li>
+      <li><a onclick="showPage('formation')" id="nav-formation">Formation & ateliers</a></li>
+      <li><a onclick="showPage('equipe')" id="nav-equipe">L'équipe</a></li>
+      <li><a onclick="showPage('cours')" class="nav-cta">Réserver →</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════════════════════
+     PAGE 1 — ACCUEIL
+════════════════════════════════════════════════════ -->
+<div class="page active" id="page-accueil">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="improve-bar" style="max-width:680px;margin:0 auto 28px;background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.25);color:rgba(255,255,255,.9);">
+      ✦ AMÉLIORATION — H1 réécrit avec localisation géographique + différenciation « classique »
+    </div>
+    <p class="hero-eyebrow">Studio Pilates classique · Saint-Lambert, Rive-Sud de Montréal</p>
+    <h1>Découvrez le Pilates classique<br>à Saint-Lambert —<br>pour votre corps, à votre rythme.</h1>
+    <p class="hero-sub">Nous aidons les personnes à mieux comprendre et utiliser leur corps pour vivre, bouger et performer à leur plein potentiel.</p>
+    <div class="hero-ctas">
+      <button class="btn btn-primary" onclick="showPage('cours')">
+        Je suis nouveau — Aidez-moi à commencer → <span style="font-size:12px;opacity:.7;font-weight:400;">2 minutes</span>
+      </button>
+      <button class="btn btn-outline" onclick="showPage('cours')">Voir les cours et les tarifs</button>
+    </div>
+    <div class="ux-note">✦ AMÉLIORATION — CTA reformulé à la 1ʳᵉ personne avec durée explicite</div>
+  </div>
+
+  <!-- POURQUOI -->
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Notre approche</p>
+        <h2>Pourquoi Pilates AuthentiKa ?</h2>
+        <p class="lead">Une méthode rigoureuse, transmise dans sa forme originale, adaptée à chaque personne.</p>
+      </div>
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-icon">🤝</div>
+          <h3>Authenticité</h3>
+          <p style="color:var(--muted);font-size:15px;">Nous accueillons chaque personne telle qu'elle est, avec son histoire, son corps et son rythme de progression.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">🎯</div>
+          <h3>Engagement</h3>
+          <p style="color:var(--muted);font-size:15px;">Nous croyons que les changements durables naissent de l'engagement, de la régularité et du désir sincère de progresser.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">🌱</div>
+          <h3>Évolution</h3>
+          <p style="color:var(--muted);font-size:15px;">Nous croyons que chaque personne peut évoluer, quel que soit son point de départ. Chaque progrès compte.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARCOURS -->
+  <section class="alt">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Votre parcours</p>
+        <h2>Comment souhaitez-vous commencer ?</h2>
+      </div>
+      <div class="improve-bar">✦ AMÉLIORATION — Aperçu des tarifs affiché avant le basculement vers la plateforme de réservation</div>
+      <div class="parcours-grid">
+        <div class="parcours-card featured">
+          <p class="parcours-tag">✦ Recommandé pour débuter</p>
+          <h3>Je suis nouveau</h3>
+          <p>Répondez à quelques questions pour trouver le meilleur point de départ selon votre situation.</p>
+          <div class="prix-apercu">
+            Forfait découverte (3 séances privées) <br><strong>195 $</strong> <span style="font-size:13px;color:var(--muted);">+ taxes</span>
+          </div>
+          <button class="btn btn-blue" style="width:100%;" onclick="showPage('cours')">M'aider à choisir →</button>
+        </div>
+        <div class="parcours-card">
+          <p class="parcours-tag">Accès direct</p>
+          <h3>Je connais déjà le Pilates</h3>
+          <p>Consultez les horaires, les options et les tarifs disponibles pour rejoindre les cours réguliers.</p>
+          <div class="prix-apercu">
+            Cours à la carte dès <strong>32 $</strong> <span style="font-size:13px;color:var(--muted);">/ cours</span>
+          </div>
+          <button class="btn btn-ghost" style="width:100%;" onclick="showPage('cours')">Voir les cours →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CITATION -->
+  <div class="quote-section">
+    <p class="quote-text">« Physical fitness is the first requisite of happiness. »</p>
+    <p class="quote-author">Joseph Pilates</p>
+  </div>
+
+  <!-- FORMATION APERÇU -->
+  <section>
+    <div class="container">
+      <div class="section-header" style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;">
+        <div>
+          <p class="section-label">Se former, approfondir, se perfectionner</p>
+          <h2>Formation et ateliers</h2>
+        </div>
+        <div>
+          <div class="improve-bar" style="margin:0;">✦ AMÉLIORATION — Lien de navigation corrigé vers la page dédiée</div>
+          <button class="btn btn-ghost" style="margin-top:10px;" onclick="showPage('formation')">Voir toutes les formations →</button>
+        </div>
+      </div>
+      <div class="formation-grid">
+        <div class="formation-card">
+          <div class="formation-img">🧘</div>
+          <div class="formation-body">
+            <div class="chip">Formation</div>
+            <h3 style="margin-top:12px;">Pilates au sol (Matwork)</h3>
+            <p style="color:var(--muted);font-size:14.5px;">240 heures de formation complète. Évaluations intermédiaires et examen final pour obtenir votre certification.</p>
+            <button class="btn btn-blue" style="width:100%;margin-top:16px;" onclick="showPage('formation')">En savoir plus</button>
+          </div>
+        </div>
+        <div class="formation-card">
+          <div class="formation-img">🏋️</div>
+          <div class="formation-body">
+            <div class="chip">Formation</div>
+            <h3 style="margin-top:12px;">Formation complète</h3>
+            <p style="color:var(--muted);font-size:14.5px;">Comprendre le système dans sa globalité. Enseigner du centre vers les extrémités avec précision.</p>
+            <button class="btn btn-blue" style="width:100%;margin-top:16px;" onclick="showPage('formation')">En savoir plus</button>
+          </div>
+        </div>
+        <div class="formation-card">
+          <div class="formation-img">⭐</div>
+          <div class="formation-body">
+            <div class="chip" style="background:#FFF8E1;color:#7A5500;border-color:#F0C040;">Atelier exclusif</div>
+            <h3 style="margin-top:12px;">Atelier avec MeJo Wiggin</h3>
+            <p style="color:var(--muted);font-size:14.5px;">Deux weekends immersifs en 2027 avec une formatrice formée directement par Romana Kryzanowska.</p>
+            <button class="btn btn-blue" style="width:100%;margin-top:16px;" onclick="showPage('formation')">Voir les détails</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="alt" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Nous joindre</p>
+        <h2>Contact</h2>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <p>📧 <strong>info@pilatesauthentika.com</strong></p>
+          <p>📞 <strong>438-341-4891</strong></p>
+          <p>📍 <strong>465 Av. Victoria, suite 505<br>Saint-Lambert, QC J4P 2J2</strong></p>
+          <p style="margin-top:24px;color:var(--muted);font-size:14px;">Lun – Ven · 7 h à 20 h<br>Sam – Dim · 8 h à 14 h</p>
+        </div>
+        <div>
+          <form onsubmit="return false;">
+            <input type="text" placeholder="Prénom">
+            <input type="text" placeholder="Nom">
+            <input type="email" placeholder="Courriel">
+            <textarea placeholder="Votre message…"></textarea>
+            <p class="form-consent">En soumettant ce formulaire, vous acceptez que Pilates AuthentiKa utilise les renseignements fournis pour répondre à votre demande, conformément à sa <a href="#">Politique de confidentialité</a>. (Loi 25)</p>
+            <button class="btn btn-blue" type="submit">Envoyer</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo">Pilates AuthentiKa</div>
+        <p style="font-size:14px;line-height:1.7;">Studio de Pilates classique à Saint-Lambert.<br>Rive-Sud de Montréal.</p>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <ul>
+          <li><a onclick="showPage('accueil')">Accueil</a></li>
+          <li><a onclick="showPage('cours')">Cours & réservation</a></li>
+          <li><a onclick="showPage('formation')">Formation & ateliers</a></li>
+          <li><a onclick="showPage('equipe')">L'équipe</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Légal</h4>
+        <ul>
+          <li><a href="#">Politique de confidentialité</a></li>
+          <li><a href="#">Modalités d'inscription</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer-bottom">© 2026 Pilates AuthentiKa Inc. · Saint-Lambert, Québec · <a href="#" style="color:rgba(255,255,255,.4);">Politique de confidentialité</a></p>
+  </footer>
+</div>
+
+<!-- ════════════════════════════════════════════════════
+     PAGE 2 — COURS & RÉSERVATION
+════════════════════════════════════════════════════ -->
+<div class="page" id="page-cours">
+  <div class="hero" style="padding:56px 24px 64px;">
+    <p class="hero-eyebrow">Studio · Saint-Lambert</p>
+    <h1 style="font-size:clamp(24px,3.5vw,38px);">Cours & réservation</h1>
+    <p class="hero-sub">Choisissez la formule qui vous convient. Tarifs affichés clairement avant la réservation.</p>
+  </div>
+
+  <!-- TARIFS -->
+  <section>
+    <div class="container">
+      <div class="improve-bar">✦ AMÉLIORATION — Tarifs visibles sur le site avant tout basculement vers WellnessLiving</div>
+      <div class="section-header">
+        <p class="section-label">Options d'achat</p>
+        <h2>Nos formules</h2>
+        <p class="lead">Tous les prix s'entendent avant taxes (TPS + TVQ).</p>
+      </div>
+
+      <div class="tarifs-grid">
+        <div class="tarif-card featured">
+          <p class="tarif-label">✦ Idéal pour commencer</p>
+          <h3>Forfait découverte</h3>
+          <div class="tarif-price">195 $</div>
+          <p class="tarif-unit">3 séances privées · non transférable</p>
+          <ul>
+            <li>Évaluation de votre situation</li>
+            <li>Mouvement adapté à votre corps</li>
+            <li>Base solide avant les cours de groupe</li>
+          </ul>
+          <button class="btn btn-blue" style="width:100%;">Réserver ce forfait</button>
+        </div>
+        <div class="tarif-card">
+          <p class="tarif-label">Flexibilité</p>
+          <h3>Cours à la carte</h3>
+          <div class="tarif-price">32 $</div>
+          <p class="tarif-unit">par cours · cartes de 1, 5, 10 ou 20</p>
+          <ul>
+            <li>Carte de 1 cours — 35 $</li>
+            <li>Carte de 5 cours — 165 $</li>
+            <li>Carte de 10 cours — 320 $</li>
+            <li>Carte de 20 cours — 600 $</li>
+          </ul>
+          <button class="btn btn-ghost" style="width:100%;">Acheter une carte</button>
+        </div>
+        <div class="tarif-card">
+          <p class="tarif-label">Pratique régulière</p>
+          <h3>Abonnement</h3>
+          <div class="tarif-price">120 $</div>
+          <p class="tarif-unit">par mois · engagement 3 mois</p>
+          <ul>
+            <li>4 cours de groupe / mois</li>
+            <li>Priorité de réservation</li>
+            <li>Accès aux rediffusions vidéo</li>
+          </ul>
+          <button class="btn btn-ghost" style="width:100%;">Voir les abonnements</button>
+        </div>
+      </div>
+
+      <p style="text-align:center;color:var(--muted);font-size:13.5px;">Les prix indiqués sont approximatifs et fournis à titre indicatif. Tarifs exacts sur la plateforme de réservation.</p>
+    </div>
+  </section>
+
+  <!-- TUNNEL -->
+  <section class="blue-lt">
+    <div class="container">
+      <div class="section-header centered">
+        <p class="section-label">Je suis nouveau</p>
+        <h2>Trouvez votre premier cours en 2 minutes</h2>
+      </div>
+      <div class="improve-bar" style="max-width:680px;margin:0 auto 28px;">✦ AMÉLIORATION — Tunnel d'orientation avec tarifs visibles à chaque étape</div>
+
+      <div class="tunnel-box">
+        <!-- Étape 1 -->
+        <div class="tunnel-step active" id="t1">
+          <p class="tunnel-q">Que souhaitez-vous faire pour commencer ?</p>
+          <div class="tunnel-options">
+            <button class="tunnel-option" onclick="tunnelGo('t2-prive')">
+              <strong>Un rendez-vous privé ou semi-privé</strong>
+              <span>Pour être accompagné de façon personnalisée · dès 65 $ / séance</span>
+            </button>
+            <button class="tunnel-option" onclick="tunnelGo('t2-groupe')">
+              <strong>Un cours de groupe</strong>
+              <span>Pour rejoindre les cours réguliers du studio · dès 32 $ / cours</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Étape 2a — Privé -->
+        <div class="tunnel-step" id="t2-prive">
+          <p class="tunnel-q">Avez-vous une condition particulière ?</p>
+          <p style="color:var(--muted);font-size:14px;margin-bottom:20px;">Par exemple une blessure, une douleur, une limitation, une grossesse ou un besoin d'adaptation.</p>
+          <div class="tunnel-options">
+            <button class="tunnel-option" onclick="tunnelGo('reco-forfait')">
+              <strong>Oui</strong>
+              <span>J'aimerais être orienté avant de choisir.</span>
+            </button>
+            <button class="tunnel-option" onclick="tunnelGo('reco-prive')">
+              <strong>Non</strong>
+              <span>Je souhaite simplement choisir un rendez-vous.</span>
+            </button>
+          </div>
+          <button class="tunnel-back" onclick="tunnelGo('t1')">← Retour</button>
+        </div>
+
+        <!-- Étape 2b — Groupe -->
+        <div class="tunnel-step" id="t2-groupe">
+          <p class="tunnel-q">Avez-vous une condition particulière ?</p>
+          <p style="color:var(--muted);font-size:14px;margin-bottom:20px;">Une blessure, une douleur, une limitation, une grossesse ou un besoin d'adaptation.</p>
+          <div class="tunnel-options">
+            <button class="tunnel-option" onclick="tunnelGo('reco-forfait')">
+              <strong>Oui</strong>
+              <span>J'aimerais être orienté avant de choisir.</span>
+            </button>
+            <button class="tunnel-option" onclick="tunnelGo('reco-groupe')">
+              <strong>Non</strong>
+              <span>Je veux voir les cours de groupe disponibles.</span>
+            </button>
+          </div>
+          <button class="tunnel-back" onclick="tunnelGo('t1')">← Retour</button>
+        </div>
+
+        <!-- Recommandation — Forfait -->
+        <div class="tunnel-step" id="reco-forfait">
+          <div class="tunnel-reco">
+            <h3 style="margin-bottom:8px;">✦ Nous recommandons le Forfait découverte</h3>
+            <p style="color:var(--muted);font-size:14.5px;">Trois séances privées pour évaluer votre situation, adapter les mouvements et démarrer avec de bonnes bases.</p>
+            <p style="margin-top:10px;font-size:15px;"><strong>Forfait découverte — 195 $ + taxes</strong></p>
+          </div>
+          <div class="tunnel-options">
+            <button class="tunnel-option" onclick="alert('Redirection vers WellnessLiving (plateforme de réservation)')">
+              <strong>Réserver le Forfait découverte</strong>
+              <span>3 séances privées · 195 $ + taxes</span>
+            </button>
+            <button class="tunnel-option" onclick="tunnelGo('reco-groupe')">
+              <strong>Voir quand même les cours de groupe</strong>
+              <span>Consulter les horaires et disponibilités.</span>
+            </button>
+          </div>
+          <button class="tunnel-back" onclick="tunnelGo('t1')">← Recommencer</button>
+        </div>
+
+        <!-- Recommandation — Cours groupe -->
+        <div class="tunnel-step" id="reco-groupe">
+          <div class="tunnel-reco">
+            <h3 style="margin-bottom:8px;">Cours de groupe disponibles</h3>
+            <p style="color:var(--muted);font-size:14.5px;">Consultez le calendrier et réservez directement. Une carte de 5 cours est le meilleur rapport qualité-prix pour commencer.</p>
+            <p style="margin-top:10px;font-size:15px;"><strong>Carte de 5 cours — 165 $ + taxes</strong></p>
+          </div>
+          <button class="btn btn-blue" onclick="alert('Redirection vers le calendrier WellnessLiving')">Voir le calendrier et réserver →</button>
+          <button class="tunnel-back" onclick="tunnelGo('t1')">← Recommencer</button>
+        </div>
+
+        <!-- Recommandation — Rendez-vous privé -->
+        <div class="tunnel-step" id="reco-prive">
+          <div class="tunnel-reco">
+            <h3 style="margin-bottom:8px;">Rendez-vous privé ou semi-privé</h3>
+            <p style="color:var(--muted);font-size:14.5px;">Consultez les disponibilités et choisissez le format qui vous convient.</p>
+            <p style="margin-top:10px;font-size:15px;"><strong>Séance privée — 85 $ · Semi-privé — 65 $ + taxes</strong></p>
+          </div>
+          <button class="btn btn-blue" onclick="alert('Redirection vers les disponibilités WellnessLiving')">Choisir un rendez-vous →</button>
+          <button class="tunnel-back" onclick="tunnelGo('t1')">← Recommencer</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div><div class="footer-logo">Pilates AuthentiKa</div><p style="font-size:14px;">Studio de Pilates classique · Saint-Lambert</p></div>
+      <div><h4>Navigation</h4><ul><li><a onclick="showPage('accueil')">Accueil</a></li><li><a onclick="showPage('cours')">Cours</a></li><li><a onclick="showPage('formation')">Formation</a></li><li><a onclick="showPage('equipe')">L'équipe</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li>info@pilatesauthentika.com</li><li>438-341-4891</li></ul></div>
+    </div>
+    <p class="footer-bottom">© 2026 Pilates AuthentiKa Inc.</p>
+  </footer>
+</div>
+
+<!-- ════════════════════════════════════════════════════
+     PAGE 3 — FORMATION & ATELIERS
+════════════════════════════════════════════════════ -->
+<div class="page" id="page-formation">
+  <div class="workshop-hero">
+    <p class="hero-eyebrow" style="color:rgba(255,255,255,.6);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:14px;">Formation continue · Pilates classique</p>
+    <h1>Formation et ateliers</h1>
+    <p class="lead">Se former, approfondir, se perfectionner dans la méthode Pilates classique.</p>
+    <div class="ux-note" style="margin-top:24px;">✦ AMÉLIORATION — Page unifiée en français (anciennement répartie entre l'accueil et /workshops en anglais)</div>
+  </div>
+
+  <!-- FORMATION SOL -->
+  <section>
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;">
+        <div>
+          <p class="section-label">Formation certifiante</p>
+          <h2>Pilates au sol (Matwork)</h2>
+          <p style="color:var(--muted);margin:16px 0 24px;font-size:15.5px;">Une formation complète de 240 heures pour acquérir les bases du Pilates classique au tapis et développer les compétences nécessaires à l'enseignement.</p>
+          <ul style="margin:0 0 28px 20px;color:var(--muted);font-size:15px;line-height:2;">
+            <li>240 heures de formation au total</li>
+            <li>Frais de séminaire pour acquérir et pratiquer toutes les notions</li>
+            <li>Un travail personnel soutenu et accompagné</li>
+            <li>Évaluations intermédiaires et examen final</li>
+          </ul>
+          <button class="btn btn-blue" onclick="showPage('accueil');setTimeout(()=>document.getElementById('contact').scrollIntoView({behavior:'smooth'}),200)">Contactez-nous pour les détails</button>
+        </div>
+        <div style="background:var(--blue-lt);height:340px;border-radius:var(--radius);display:flex;align-items:center;justify-content:center;font-size:64px;">🧘</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMATION COMPLÈTE -->
+  <section class="alt">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;">
+        <div style="background:var(--sand-dark);height:340px;border-radius:var(--radius);display:flex;align-items:center;justify-content:center;font-size:64px;">🏋️</div>
+        <div>
+          <p class="section-label">Formation certifiante</p>
+          <h2>Formation complète</h2>
+          <p style="color:var(--muted);margin:16px 0 24px;font-size:15.5px;">Une formation approfondie sur l'ensemble du système Pilates classique, sur tous les appareils. Pour enseigner avec précision, cohérence et profondeur.</p>
+          <ul style="margin:0 0 28px 20px;color:var(--muted);font-size:15px;line-height:2;">
+            <li>Comprendre le système dans sa globalité</li>
+            <li>Enseigner du centre vers les extrémités</li>
+            <li>Adapter le mouvement avec précision</li>
+            <li>Structurer une progression intelligente</li>
+            <li>Produire une amélioration visible de la posture</li>
+          </ul>
+          <button class="btn btn-blue" onclick="showPage('accueil');setTimeout(()=>document.getElementById('contact').scrollIntoView({behavior:'smooth'}),200)">Contactez-nous pour les détails</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ATELIER MEJO -->
+  <section>
+    <div class="container">
+      <div class="improve-bar">✦ AMÉLIORATION — Section traduite en français (anciennement uniquement en anglais sur /workshops)</div>
+      <div class="section-header centered">
+        <div style="display:inline-block;background:#FFF8E1;border:1px solid #F0C040;border-radius:20px;padding:4px 14px;font-size:12px;font-weight:700;color:#7A5500;margin-bottom:16px;">Atelier exclusif · Printemps 2027</div>
+        <h2>Le Syllabus classique avec MeJo Wiggin</h2>
+        <p class="lead">Une occasion rare d'approfondir l'enseignement classique avec une maître instructrice formée directement par Romana Kryzanowska, protégée de Joseph Pilates.</p>
+      </div>
+
+      <div class="mejo-bio" style="margin-bottom:48px;">
+        <div class="mejo-photo">👩</div>
+        <div>
+          <h3>MeJo Wiggin</h3>
+          <p style="color:var(--blue);font-size:14px;font-weight:600;margin-bottom:10px;">Maître instructrice · Pilates classique</p>
+          <p style="color:var(--muted);font-size:15px;line-height:1.7;">Reconnue internationalement pour son style d'enseignement clair et dynamique, MeJo Wiggin a été formée directement sous la direction de Romana Kryzanowska. Avec plus de deux décennies d'expérience aux États-Unis, en Europe et en Asie, elle est l'une des gardiennes les plus respectées de la tradition du Pilates classique authentique.</p>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-bottom:48px;">
+        <div style="background:var(--blue-lt);border-radius:var(--radius);padding:28px;border:1px solid var(--blue-mid);">
+          <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:12px;">Weekend I · Avril 2027</div>
+          <h3>Système débutant et intermédiaire — Partie I</h3>
+          <p style="color:var(--muted);font-size:14.5px;margin-top:8px;">22 – 25 avril 2027 · Jeudi au dimanche</p>
+          <p style="font-size:22px;font-weight:800;color:var(--blue);margin:14px 0 4px;">2 750 $ CA</p>
+          <p style="font-size:12px;color:var(--muted);">Avant-première jusqu'au 31 décembre 2026. Prix régulier : 2 835 $.</p>
+        </div>
+        <div style="background:var(--blue-lt);border-radius:var(--radius);padding:28px;border:1px solid var(--blue-mid);">
+          <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:12px;">Weekend II · Juin 2027</div>
+          <h3>Système intermédiaire — Partie II et système avancé</h3>
+          <p style="color:var(--muted);font-size:14.5px;margin-top:8px;">24 – 27 juin 2027 · Jeudi au dimanche</p>
+          <p style="font-size:22px;font-weight:800;color:var(--blue);margin:14px 0 4px;">2 750 $ CA</p>
+          <p style="font-size:12px;color:var(--muted);">Avant-première jusqu'au 31 décembre 2026. Prix régulier : 2 835 $.</p>
+        </div>
+      </div>
+
+      <div style="background:var(--blue);border-radius:var(--radius);padding:36px;text-align:center;color:#fff;">
+        <p style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;opacity:.7;margin-bottom:10px;">Offre avant-première</p>
+        <h3 style="font-size:26px;margin-bottom:6px;">Les deux weekends — 5 300 $ CA</h3>
+        <p style="opacity:.8;font-size:15px;margin-bottom:24px;">Places strictement limitées. Prérequis : minimum 600 heures de formation certifiante.</p>
+        <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+          <button class="btn btn-primary" onclick="alert('Redirection vers WellnessLiving pour l\'inscription')">S'inscrire aux deux weekends</button>
+          <button class="btn btn-outline" onclick="showPage('accueil');setTimeout(()=>document.getElementById('contact').scrollIntoView({behavior:'smooth'}),200)">Vérifier mon éligibilité</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div><div class="footer-logo">Pilates AuthentiKa</div><p style="font-size:14px;">Studio de Pilates classique · Saint-Lambert</p></div>
+      <div><h4>Navigation</h4><ul><li><a onclick="showPage('accueil')">Accueil</a></li><li><a onclick="showPage('cours')">Cours</a></li><li><a onclick="showPage('formation')">Formation</a></li><li><a onclick="showPage('equipe')">L'équipe</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li>info@pilatesauthentika.com</li><li>438-341-4891</li></ul></div>
+    </div>
+    <p class="footer-bottom">© 2026 Pilates AuthentiKa Inc.</p>
+  </footer>
+</div>
+
+<!-- ════════════════════════════════════════════════════
+     PAGE 4 — L'ÉQUIPE
+════════════════════════════════════════════════════ -->
+<div class="page" id="page-equipe">
+  <div class="hero" style="padding:56px 24px 64px;">
+    <p class="hero-eyebrow">Studio · Saint-Lambert</p>
+    <h1 style="font-size:clamp(24px,3.5vw,38px);">L'équipe</h1>
+    <p class="hero-sub">Découvrez les personnes qui vous accompagnent au studio, chacune avec son parcours, sa sensibilité et sa façon d'enseigner.</p>
+  </div>
+
+  <section>
+    <div class="container">
+      <div class="equipe-grid">
+
+        <div class="equipe-card">
+          <div class="equipe-photo">🧘‍♀️</div>
+          <div class="equipe-body">
+            <h3>Kasia Frejlich-Morisseau</h3>
+            <p class="equipe-role">Fondatrice du studio · Professeure de Pilates · Naturothérapeute</p>
+            <p>Kasia enseigne le mouvement depuis plus de 20 ans. Formée en Pilates contemporain puis en Pilates classique avec Real Pilates (Alycea Ungaro, formée par Romana Kryzanowska), elle est instructrice de 3ᵉ génération de la méthode Pilates.</p>
+            <p style="margin-top:10px;">Son parcours l'a menée de la Pologne à la France (11 ans d'enseignement) puis à Montréal depuis 2019.</p>
+            <div style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap;">
+              <span class="chip">Pilates classique</span>
+              <span class="chip">Appareils</span>
+              <span class="chip">Naturothérapie</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="equipe-card">
+          <div class="equipe-photo">💃</div>
+          <div class="equipe-body">
+            <h3>Verónica Herrera Munguia</h3>
+            <p class="equipe-role">Professeure de Pilates</p>
+            <p>Originaire de Cancún, Verónica a commencé la danse classique à 10 ans. Diplômée de l'Escuela Superior de Música y Danza de Monterrey, elle a ensuite poursuivi une carrière internationale de danseuse et de trapéziste (Cirque du Soleil, Les 7 Doigts de la Main).</p>
+            <p style="margin-top:10px;">Elle a découvert le Pilates lors de sa carrière artistique et s'est formée au programme Real Pilates.</p>
+            <div style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap;">
+              <span class="chip">Danse classique</span>
+              <span class="chip">Cirque</span>
+              <span class="chip">Real Pilates</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="equipe-card">
+          <div class="equipe-photo">🏋️‍♂️</div>
+          <div class="equipe-body">
+            <h3>Daniel</h3>
+            <p class="equipe-role">Professeur de Pilates · Naturothérapeute</p>
+            <p>Né en Hongrie, Daniel a exploré de nombreuses disciplines sportives avant de découvrir le Pilates classique à son arrivée à Montréal. Ingénieur en informatique de formation, il applique son approche analytique à la progression structurée du mouvement.</p>
+            <p style="margin-top:10px;">Certifié Real Pilates et ANQ, il enseigne avec bienveillance, précision et empathie.</p>
+            <div style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap;">
+              <span class="chip">Real Pilates</span>
+              <span class="chip">ANQ</span>
+              <span class="chip">Naturothérapie</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA rejoindre -->
+  <section class="blue-lt">
+    <div class="container" style="text-align:center;">
+      <h2>Prêt à commencer ?</h2>
+      <p class="lead" style="margin:16px auto 32px;">Réservez votre premier cours ou contactez-nous pour en savoir plus.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+        <button class="btn btn-blue" onclick="showPage('cours')">Voir les cours et les tarifs →</button>
+        <button class="btn btn-ghost" onclick="showPage('accueil');setTimeout(()=>document.getElementById('contact').scrollIntoView({behavior:'smooth'}),200)">Nous contacter</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div><div class="footer-logo">Pilates AuthentiKa</div><p style="font-size:14px;">Studio de Pilates classique · Saint-Lambert</p></div>
+      <div><h4>Navigation</h4><ul><li><a onclick="showPage('accueil')">Accueil</a></li><li><a onclick="showPage('cours')">Cours</a></li><li><a onclick="showPage('formation')">Formation</a></li><li><a onclick="showPage('equipe')">L'équipe</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li>info@pilatesauthentika.com</li><li>438-341-4891</li></ul></div>
+    </div>
+    <p class="footer-bottom">© 2026 Pilates AuthentiKa Inc.</p>
+  </footer>
+</div>
+
+<script>
+  // ── NAVIGATION ──────────────────────────────────
+  function showPage(name) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+    document.getElementById('page-' + name).classList.add('active');
+    const navLink = document.getElementById('nav-' + name);
+    if (navLink) navLink.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // ── TUNNEL D'ORIENTATION ─────────────────────────
+  function tunnelGo(stepId) {
+    document.querySelectorAll('.tunnel-step').forEach(s => s.classList.remove('active'));
+    document.getElementById(stepId).classList.add('active');
+  }
+</script>
+</body>
+</html>
